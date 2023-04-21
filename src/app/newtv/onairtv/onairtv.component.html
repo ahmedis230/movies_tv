@@ -1,0 +1,26 @@
+<div class="row justify-content-center  my-3">
+
+
+    <div *ngFor="let onairtv of onairtv" class="col-md-2">
+        <div  class="movie position-relative">
+            <a [routerLink]="['/tvdetails', onairtv.id]">
+
+                <img class="w-100" [src]="imgprefix + onairtv.poster_path" alt="">
+            <h6 class="h6 mt-3">{{onairtv.overview|seemore:10}}</h6>
+            <div class="vote p-2 bg-info position-absolute top-0 end-0">{{onairtv.vote_average.toFixed(1)}}</div>
+
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="p-5 d-flex justify-content-center">
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+          <li (click)="test(page)" *ngFor="let page of pages" class="page-item">
+            <a class="page-link" >{{page}}</a>
+        </li>
+        </ul>
+      </nav>
+</div>

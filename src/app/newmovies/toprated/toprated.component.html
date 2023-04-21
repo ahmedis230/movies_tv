@@ -1,0 +1,28 @@
+<div class="row justify-content-center  my-3">
+
+    
+
+    <div *ngFor="let movie of toprated|search:term" class="col-md-2 position-relative">
+        <div  class="movie">
+            <a [routerLink]="['/moviedetails', movie.id]">
+
+                <img class="w-100" [src]="imgprefix + movie.poster_path" alt="">
+                <div class="vote p-2 bg-info position-absolute top-0 end-0">{{movie.vote_average.toFixed(1)}}</div>
+
+            <h3 class="h6 my-3">{{movie.title}}</h3>
+            <p class="h6 my-3">{{movie.overview|seemore:10}}</p>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="p-5 d-flex justify-content-center">
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+          <li (click)="test(page)" *ngFor="let page of pages" class="page-item">
+            <a class="page-link" >{{page}}</a>
+        </li>
+        </ul>
+      </nav>
+</div>

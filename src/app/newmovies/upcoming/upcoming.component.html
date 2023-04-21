@@ -1,0 +1,30 @@
+<div class="row justify-content-center  my-3">
+
+    <!-- <div class="py-5 d-flex  justify-content-center">
+        <label class="me-3 " for="">search:</label>
+        <input [(ngModel)]="term" class="form-control w-50 " type="text">
+
+    </div> -->
+
+    <div *ngFor="let movie of upcoming|search:term" class="col-md-2">
+        <div  class="movie">
+            <a [routerLink]="['/moviedetails', movie.id]">
+
+                <img class="w-100" [src]="imgprefix + movie.poster_path" alt="">
+            <h3 class="h6 my-3">{{movie.title}}</h3>
+            <p class="h6 my-3">{{movie.overview|seemore:10}}</p>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="p-5 d-flex justify-content-center">
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+          <li (click)="test(page)" *ngFor="let page of pages" class="page-item">
+            <a class="page-link" >{{page}}</a>
+        </li>
+        </ul>
+      </nav>
+</div>

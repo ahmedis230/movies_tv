@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-4 py-4">
+        <img class="w-100" [src]="imgprefix+[peopledetails.profile_path]" alt="">
+    </div>
+    <div class="col-md-8">
+        <h5 class="fw-bolder">{{peopledetails.name}}</h5>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <ul>
+            <li>        <h5 class="fw-bolder">popularity : {{peopledetails.popularity}}</h5>
+            </li>
+            <li>        <h5 class="fw-bold">BirthDay : {{peopledetails.birthday}}</h5>
+            </li>
+            <li>        <h4><span class="fw-bold">Place of Birth :</span>  {{peopledetails.place_of_birth}}</h4>
+            </li>
+            <li><p class="py-3 "><span class="fw-bolder">Overview : </span> {{peopledetails.biography}}</p></li>
+        </ul>
+
+
+
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-4 py-4">
+        <img class="w-100" [src]="imgprefix+[tvdetails.poster_path]" alt="">
+    </div>
+    <!-- <div class="col-md-8 py-4">
+        <h5>{{tvdetails.original_name}}</h5>
+        <p class="py-3">{{tvdetails.overview}}</p>
+        <ul>
+            <li>popularity:{{tvdetails.popularity}}</li>
+            <li>vote_average:{{tvdetails.vote_average}}</li>
+            <li>vote_count:{{tvdetails.vote_count}}</li>
+        </ul>
+    </div> -->
+
+
+
+    <div class="col-md-8 py-4">
+        <h5 class="fw-bolder">{{tvdetails.name}}</h5>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <h6 class="mt-2"><span class="">{{tvdetails.original_language}}</span> 
+            <i class="fa-solid fa-star ms-3" style="color: #ffffff;"></i>
+            {{tvdetails.vote_average.toFixed(1)}}</h6>
+            <h5 ><span class="fw-bold">First Air Date : </span> {{tvdetails.first_air_date}}</h5>
+            <h5 ><span class="fw-bold">last Air Date :</span>   {{tvdetails.last_air_date}}</h5>
+
+
+            <div class="list-unstyled d-flex my-3">
+                <div *ngFor="let genre of tvdetails.genres " class="bg-warning p-1 me-3 rounded-2" >
+                  {{ genre.name }}
+                </div>
+              </div>
+
+        <ul>
+            <li><p class="py-3 "><span class="fw-bolder">Overview : </span> {{tvdetails.overview}}</p></li>
+
+            <li class="fw-bolder">popularity : {{tvdetails.popularity}}</li>
+            <li class="fw-bolder">vote_count : {{tvdetails.vote_count}} person</li>
+            <li> <div class="list-unstyled d-flex my-3 fw-bolder">
+                production companies :  
+                <div *ngFor="let prod of tvdetails.production_companies " class="bg-info p-1 mx-2 rounded-2" >
+                  {{ prod.name }}
+                </div>
+              </div></li>
+            <li> <div class="list-unstyled d-flex my-3 fw-bolder">
+                production countries :   <div *ngFor="let prod of tvdetails.production_countries " class="bg-info p-1 mx-2 rounded-2" >
+                  {{ prod.name }}
+                </div>
+              </div></li>
+        </ul>
+
+       
+    </div>
+
+
+
+
+</div>

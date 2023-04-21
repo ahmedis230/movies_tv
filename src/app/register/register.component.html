@@ -1,0 +1,42 @@
+<div  class="container py-5 ">
+    <h4 class="d-flex justify-content-center align-items-center fs-3">Registeration Form:</h4>
+    <form [formGroup]="registerform" (ngSubmit)="register(registerform)">
+        <label for="">firstName:</label>
+        <input  class="form-control mb-3" formControlName="first_name" type="text">
+        <div class="errors" *ngIf="registerform.get('first_name')?.errors && registerform.get('first_name')?.touched">
+            <p class="text-danger" *ngIf="registerform.get('first_name')?.errors?.['required']">name is required</p>
+            <p class="text-danger" *ngIf="registerform.get('first_name')?.errors?.['minlenght']">minlength is 2char</p>
+            <p class="text-danger" *ngIf="registerform.get('first_name')?.errors?.['maxlength']">maxlength is 8 char</p>
+        </div>
+
+        <label for="LastName">LastName:</label>
+        <input class="form-control mb-3" formControlName="last_name" type="text">
+        <div class="errors" *ngIf="registerform.get('last_name')?.errors && registerform.get('last_name')?.touched">
+            <p class="text-danger" *ngIf="registerform.get('last_name')?.errors?.['required']">name is required</p>
+            <p class="text-danger" *ngIf="registerform.get('last_name')?.errors?.['minlenght']">minlength is 2char</p>
+            <p class="text-danger" *ngIf="registerform.get('last_name')?.errors?.['maxlength']">maxlength is 8 char</p>
+        </div>
+        <label for="Email">Email:</label>
+        <input class="form-control mb-3" formControlName="email" type="email">
+        <div class="errors" *ngIf="registerform.get('email')?.errors && registerform.get('email')?.touched">
+            <p class="text-danger"  *ngIf="registerform.get('email')?.errors?.['required'] ">email is required</p>
+            <p class="text-danger" *ngIf="registerform.get('email')?.errors?.['email'] ">email not match </p>
+        </div>
+        <p class="text-danger">{{errormsg}}</p>
+        <label for="Password">Password:</label>
+        <input class="form-control mb-3" formControlName="password" type="password">
+        <div class="errors" *ngIf="registerform.get('password')?.errors && registerform.get('password')?.touched">
+            <p class="text-danger" *ngIf="registerform.get('password')?.errors?.['required'] ">password is required</p>
+            <p class="text-danger" *ngIf="registerform.get('password')?.errors?.['pattern'] ">password not match </p>
+        </div>
+        <label for="Age">Age:</label>
+        <input class="form-control mb-3" formControlName="age" type="text">
+        <div class="errors" *ngIf="registerform.get('age')?.errors && registerform.get('age')?.touched">
+            <p class="text-danger" *ngIf="registerform.get('age')?.errors?.['required'] ">age is required</p>
+            <p class="text-danger" *ngIf="registerform.get('age')?.errors?.['min'] ">min age is 10 years</p>
+            <p class="text-danger" *ngIf="registerform.get('age')?.errors?.['max'] ">max age is 80 years</p>
+        </div>
+        <button class="btn btn-info" [disabled]="registerform.invalid">Register</button>
+        
+    </form>
+</div>

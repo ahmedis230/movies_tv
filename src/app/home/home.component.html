@@ -1,0 +1,107 @@
+
+<div class="container py-5 position-relative">
+
+    <owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let movie of trendingmovies">
+    <ng-template carouselSlide [id]="movie.id">
+
+      <img [src]="imgprefix+movie.poster_path" >
+      <div class="vote p-2 bg-info position-absolute top-0 end-0">{{movie.vote_average.toFixed(1)}}</div>
+
+
+    </ng-template>
+  </ng-container>
+
+</owl-carousel-o>
+
+</div>
+
+
+
+
+<div class="row">
+
+    <div class="col-md-4 d-flex align-items-center">
+        <div>
+            <div class="brdr w-25 mb-4"></div>
+    <h2>trending <br/> movies <br/> to watch right now</h2>
+
+    <p class="text-muted">most watched movies</p>
+        <div class="brdr w-100 mt-4"></div>
+    </div>
+        </div>
+        
+    <div *ngFor="let movie of trendingmovies" class="col-md-2">
+        <div  class="movie position-relative">
+            <a [routerLink]="['/moviedetails', movie.id]">
+
+                <img class="w-100" [src]="imgprefix + movie.poster_path" alt="">
+            <h3 class="h6 mt-3">{{movie.title|watch}}</h3>
+            <h6 class="h6 mt-3">{{movie.overview|seemore:10}}</h6>
+            <div class="vote p-2 bg-info position-absolute top-0 end-0">{{movie.vote_average.toFixed(1)}}</div>
+
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
+<div class="row py-5">
+
+    <div class="col-md-4 d-flex align-items-center">
+        <div>
+            <div class="brdr w-25 mb-4"></div>
+    <h2>trending <br/> tv <br/> to watch right now</h2>
+
+    <p class="text-muted">most watched tv</p>
+        <div class="brdr w-100 mt-4"></div>
+    </div>
+        </div>
+        
+        <div *ngFor="let tv of trendingtv" class="col-md-2">
+            <div  class="movie position-relative">
+                <a [routerLink]="['/tvdetails', tv.id]">
+    
+                    <img class="w-100" [src]="imgprefix + tv.poster_path" alt="">
+                <h3 class="h6 mt-3">{{tv.title|watch}}</h3>
+                <h6 class="h6 mt-3">{{tv.overview|seemore:10}}</h6>
+                <div class="vote p-2 bg-info position-absolute top-0 end-0">{{tv.vote_average.toFixed(1)}}</div>
+    
+                </a>
+                
+            </div>
+        </div>
+        
+    </div>
+
+
+<div class="row py-5">
+
+    <div class="col-md-4 d-flex align-items-center">
+        <div>
+            <div class="brdr w-25 mb-4"></div>
+    <h2>trending <br/> actors <br/> to watch right now</h2>
+
+    <p class="text-muted">most watched actors</p>
+        <div class="brdr w-100 mt-4"></div>
+    </div>
+        </div>
+        
+    <div *ngFor="let person of trendingperson" class="col-md-2">
+        <div  class="movie">
+            <a [routerLink]="['/peopledetails', person.id]">
+
+            <img class="w-100" [src]="imgprefix + person.profile_path" alt="">
+            <h3 class="h6 mt-3">{{person.name}}</h3>
+            </a>
+        </div>
+    </div>
+
+
+    
+    </div>
+
+
+
+

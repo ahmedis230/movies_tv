@@ -1,0 +1,29 @@
+<div  class="container py-5 ">
+    <h4 class="d-flex justify-content-center align-items-center fs-3">Login Form:</h4>
+    <form [formGroup]="loginform" (ngSubmit)="login(loginform)">
+        
+
+        
+        <label for="Email">Email:</label>
+        <input class="form-control mb-3" formControlName="email" type="email">
+        <div class="errors" *ngIf="loginform.get('email')?.errors && loginform.get('email')?.touched">
+            <p class="text-danger"  *ngIf="loginform.get('email')?.errors?.['required'] ">email is required</p>
+            <p class="text-danger" *ngIf="loginform.get('email')?.errors?.['email'] ">email not match </p>
+        </div>
+        <label for="Password">Password:</label>
+        <input class="form-control mb-3" formControlName="password" type="password">
+        <div class="errors" *ngIf="loginform.get('password')?.errors && loginform.get('password')?.touched">
+            <p class="text-danger" *ngIf="loginform.get('password')?.errors?.['required'] ">password is required</p>
+            <p class="text-danger" *ngIf="loginform.get('password')?.errors?.['pattern'] ">password not match </p>
+        </div>
+
+        <p class="text-danger">{{errormsg}}</p>
+
+        
+        <button class="btn btn-info" [disabled]="loginform.invalid">Login</button>
+        
+    </form>
+    <div>
+        <h4 class="d-flex justify-content-center align-items-center py-5">Dont have account? <span (click)="gotoregister()" class="text-info">Register</span></h4>
+      </div>
+</div>

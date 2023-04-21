@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-4 py-4">
+        <img class="w-100" [src]="imgprefix+[moviedetails.poster_path]" alt="">
+    </div>
+    <div class="col-md-8 py-4">
+        <h5 class="fw-bolder">{{moviedetails.original_title}}</h5>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <i class="fa-solid fa-star me-2" style="color: #f8af12;"></i>
+        <h6 class="mt-2"><span class="">{{moviedetails.original_language}}</span> 
+            <i class="fa-solid fa-star ms-3" style="color: #ffffff;"></i>
+            {{moviedetails.vote_average.toFixed(1)}}</h6>
+            <h5 class="fw-bold">Release Date : {{moviedetails.release_date}}</h5>
+
+
+            <div class="list-unstyled d-flex my-3">
+                <div *ngFor="let genre of moviedetails.genres " class="bg-warning p-1 me-3 rounded-2" >
+                  {{ genre.name }}
+                </div>
+              </div>
+
+        <ul>
+            <li><p class="py-3 "><span class="fw-bolder">Overview : </span> {{moviedetails.overview}}</p></li>
+
+            <li class="fw-bolder">popularity : {{moviedetails.popularity}}</li>
+            <li class="fw-bolder">vote_count : {{moviedetails.vote_count}} person</li>
+            <li> <div class="list-unstyled d-flex my-3 fw-bolder">
+                production companies :  
+                <div *ngFor="let prod of moviedetails.production_companies " class="bg-info p-1  mx-2 rounded-2" >
+                  {{ prod.name }}
+                </div>
+              </div></li>
+            <li> <div class="list-unstyled d-flex my-3 fw-bolder">
+                production countries :   <div *ngFor="let prod of moviedetails.production_countries " class="bg-info p-1 mx-2 rounded-2" >
+                  {{ prod.name }}
+                </div>
+              </div></li>
+        </ul>
+
+       
+    </div>
+</div>
