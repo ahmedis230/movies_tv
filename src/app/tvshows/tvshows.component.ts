@@ -17,11 +17,7 @@ imgprefix:string='https://image.tmdb.org/t/p/w500'
 error:string='erroooooooooooooooooooor'
 
 ngOnInit(){
-  // this.tvid= this._ActivatedRoute.snapshot.params['id']
-
-  // this._MoviesService.gettv(this.tvid).subscribe({
-  //   next:(response)=> this.tvshows=response
-  // })
+  
 
   this._MoviesService.gettrending('tv').subscribe(
     {next:(response)=> this.tvshows= response.results

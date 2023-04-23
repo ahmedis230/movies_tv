@@ -1,3 +1,4 @@
+import { ContactComponent } from './contact/contact.component';
 import { PeopledetailsComponent } from './peopledetails/peopledetails.component';
 import { TvdetailsComponent } from './tvdetails/tvdetails.component';
 import { AuthGuard } from './auth.guard';
@@ -19,13 +20,14 @@ const routes: Routes = [
   {path:'register', component:RegisterComponent},
   {path:'logout', component:LogoutComponent},
   {path:'tvshows', canActivate:[AuthGuard] ,component:TVshowsComponent},
+  {path:'contact', canActivate:[AuthGuard] ,component:ContactComponent},
   {path:'moviedetails/:id', canActivate:[AuthGuard] ,component:MoviedetailsComponent},
   {path:'tvdetails/:id', canActivate:[AuthGuard] ,component:TvdetailsComponent},
   {path:'peopledetails/:id', canActivate:[AuthGuard] ,component:PeopledetailsComponent},
   {path:'login', component:LoginComponent},
   {path:'newmovies', canActivate:[AuthGuard] ,loadChildren:()=>import('./newmovies/newmovies.module').then((x)=>x.NewmoviesModule)},
   {path:'newtv', canActivate:[AuthGuard] ,loadChildren:()=>import('./newtv/newtv.module').then((x)=>x.NewtvModule)},
-  {path:'**', component:NotfoundComponent},
+  {path:'**', component:NotfoundComponent}
   
 ];
 
