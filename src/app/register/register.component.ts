@@ -28,12 +28,12 @@ errormsg:string=''
     this._authservice.signup(data.value).subscribe(
       {
         next:(data)=>{
-          if (data.message=='success') {
-            this._Router.navigate(['/login'])
-          }
-else{
-this.errormsg= data.message
+if (data.message == 'Signup successful') {
+  this._Router.navigate(['/login']);
+} else {
+  this.errormsg = data.message;
 }
+
 
         }
       }
