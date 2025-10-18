@@ -14,13 +14,13 @@ export class AuthService {
 
   constructor(private _httpclient: HttpClient, private _Router: Router) {
     if (localStorage.getItem('usertoken')) {
-      this.saveuserdata();
+      this.saveUserData();
     }
   }
 
   userdata: any = new BehaviorSubject(null);
 
-  saveuserdata() {
+  saveUserData() {
     const token = localStorage.getItem('usertoken');
     if (!token) return;
     try {
@@ -48,7 +48,7 @@ export class AuthService {
     if (user && user.email === data.email && user.password === data.password) {
       const fakeToken = btoa(JSON.stringify(user)); // mock token
       localStorage.setItem('usertoken', fakeToken);
-      this.saveuserdata();
+      this.saveUserData();
       return of({ message: 'Login successful', token: fakeToken });
     } else {
       return throwError(() => new Error('Invalid email or password'));
