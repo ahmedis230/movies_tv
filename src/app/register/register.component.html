@@ -27,7 +27,10 @@
         <input class="form-control mb-3" formControlName="password" type="password">
         <div class="errors" *ngIf="registerform.get('password')?.errors && registerform.get('password')?.touched">
             <p class="text-danger" *ngIf="registerform.get('password')?.errors?.['required'] ">password is required</p>
-            <p class="text-danger" *ngIf="registerform.get('password')?.errors?.['pattern'] ">password not match </p>
+            <p *ngIf="registerform.get('password')?.errors?.['pattern']">
+  Password must start with one lowercase letter followed by two digits (e.g. a12)
+</p>
+
         </div>
         <label for="Age">Age:</label>
         <input class="form-control mb-3" formControlName="age" type="text">
