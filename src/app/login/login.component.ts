@@ -30,7 +30,7 @@ this._AuthService.signin(data.value).subscribe({
 
 if (data.message== 'success') {
   localStorage.setItem('usertoken', data.token)
-  this._AuthService.saveuserdata();
+  this._AuthService.saveUserData();
  this._Router.navigate(['/home'])
 }
 else{
