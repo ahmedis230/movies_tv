@@ -20,17 +20,21 @@ export class AuthService {
 
   userdata: any = new BehaviorSubject(null);
 
-  saveUserData() {
-    const token = localStorage.getItem('usertoken');
-    if (!token) return;
-    try {
-      const decodedData = jwtDecode(token);
-      this.userdata.next(decodedData);
-      console.log('Decoded user:', decodedData);
-    } catch (e) {
-      console.warn('Invalid token format');
-    }
+saveUserData() {
+  const token = localStorage.getItem('usertoken');
+  if (!token) return;
+
+  try {
+    // Since our mock token is base64 JSON, decode manually
+    const decodedJson = atob(token);
+    const decodedData = JSON.parse(decodedJson);
+    this.userdata.next(decodedData);
+    console.log('Decoded user:', decodedData);
+  } catch (e) {
+    console.warn('Invalid token format');
   }
+}
+
 
   // 🔹 Mock signup — just save fake user locally
   signup(data: any): Observable<any> {
