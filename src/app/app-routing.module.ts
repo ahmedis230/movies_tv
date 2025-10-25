@@ -13,7 +13,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { LogoutComponent } from './logout/logout.component';
 import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
 
-const routes: Routes = [
+const routes: = [
   {path:'', redirectTo:'home', pathMatch:'full'},
   {path:'home',canActivate:[AuthGuard] ,component:HomeComponent},
   {path:'about', canActivate:[AuthGuard] , component:AboutComponent},
