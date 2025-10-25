@@ -10,7 +10,7 @@ export class MoviesService {
 
   constructor(private _httpclient:HttpClient) { }
 
-gettrending(mediatype:string):Observable<any>
+gettrending(mediatype:string):Observable<any
 {
 
   return this._httpclient.get(`https://api.themoviedb.org/3/trending/${mediatype}/day?api_key=005a0a302aacd538351b06eca58dba70`)
